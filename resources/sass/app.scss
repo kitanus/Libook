@@ -1,0 +1,162 @@
+//
+*{
+    border:1px solid black;
+}
+
+%grid-shared{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+header {
+    @extend %grid-shared;
+    grid-template-rows: 40px;
+    grid-template-areas: "logo . headerName headerName headerName . user user";
+    align-items: center;
+}
+
+header{
+    #logo{
+        grid-area: logo;
+    }
+
+    #name{
+        grid-area: headerName;
+    }
+
+    #user{
+        grid-area: user;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 40px;
+        align-items: center;
+        grid-template-areas: "enter login";
+    }
+
+    #user{
+        #enter{
+            grid-area: enter;
+        }
+
+        #login{
+            grid-area: login;
+        }
+    }
+}
+
+#menu{
+    @extend %grid-shared;
+    grid-template-rows: 20px;
+    grid-template-areas: ". a-main a-list a-search . search-form search-form search-form";
+}
+
+#menu{
+    #a-main{
+        grid-area: a-main;
+    }
+
+    #a-list{
+        grid-area: a-list;
+    }
+
+    #a-search{
+        grid-area: a-search;
+    }
+
+    form{
+        grid-area: search-form;
+        display: grid;
+        grid-template-columns: 6fr 1fr 2fr;
+        grid-template-rows: 20px;
+        grid-template-areas: "form-input . form-button";}
+
+    form{
+        input{
+            grid-area: form-input;
+        }
+
+        button{
+            grid-area: form-button;
+        }
+    }
+}
+
+main{
+    @extend %grid-shared;
+    grid-template-rows: 240px;
+    grid-template-areas:
+        "news news news news news news sidebar sidebar";
+}
+
+main{
+    #news-block{
+        grid-area: news;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 40px 200px;
+        grid-template-areas: "news-name" "blockNews";
+    }
+
+    #sidebar{
+        grid-area: sidebar;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 40px 200px;
+        grid-template-areas: "sidebar-name" "blockList";
+    }
+
+    #news-block{
+        #name{
+            grid-area: news-name;
+            align-self: center;
+        }
+
+        #blockNews{
+            grid-area: blockNews;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 180px;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            justify-content: space-around;
+            align-content: space-around;
+            grid-template-areas: "f-content s-content";
+        }
+
+        #blockNews{
+            .content:nth-child(1){
+                grid-area: f-content;
+            }
+
+            .content:nth-child(2){
+                grid-area: s-content;
+            }
+        }
+    }
+
+    #sidebar{
+        #name{
+            grid-area: sidebar-name;
+            align-self: center;
+        }
+
+        #blockList{
+            grid-area: blockList;
+            display: grid;
+        }
+
+        #blockList{
+            #list{
+                width: 90%;
+                height: 90%;
+                align-self: center;
+                justify-self: center;
+            }
+        }
+    }
+}
+
+footer{
+    width: 100%;
+    height: 50px;
+}

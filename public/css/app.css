@@ -1,0 +1,114 @@
+* {
+  border: 1px solid black; }
+
+header, #menu, main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; }
+
+header {
+  grid-template-rows: 40px;
+  grid-template-areas: "logo . headerName headerName headerName . user user";
+  align-items: center; }
+
+header #logo {
+  grid-area: logo; }
+
+header #name {
+  grid-area: headerName; }
+
+header #user {
+  grid-area: user;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 40px;
+  align-items: center;
+  grid-template-areas: "enter login"; }
+
+header #user #enter {
+  grid-area: enter; }
+
+header #user #login {
+  grid-area: login; }
+
+#menu {
+  grid-template-rows: 20px;
+  grid-template-areas: ". a-main a-list a-search . search-form search-form search-form"; }
+
+#menu #a-main {
+  grid-area: a-main; }
+
+#menu #a-list {
+  grid-area: a-list; }
+
+#menu #a-search {
+  grid-area: a-search; }
+
+#menu form {
+  grid-area: search-form;
+  display: grid;
+  grid-template-columns: 6fr 1fr 2fr;
+  grid-template-rows: 20px;
+  grid-template-areas: "form-input . form-button"; }
+
+#menu form input {
+  grid-area: form-input; }
+
+#menu form button {
+  grid-area: form-button; }
+
+main {
+  grid-template-rows: 240px;
+  grid-template-areas: "news news news news news news sidebar sidebar"; }
+
+main #news-block {
+  grid-area: news;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px 200px;
+  grid-template-areas: "news-name" "blockNews"; }
+
+main #sidebar {
+  grid-area: sidebar;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px 200px;
+  grid-template-areas: "sidebar-name" "blockList"; }
+
+main #news-block #name {
+  grid-area: news-name;
+  align-self: center; }
+
+main #news-block #blockNews {
+  grid-area: blockNews;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 180px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-content: space-around;
+  align-content: space-around;
+  grid-template-areas: "f-content s-content"; }
+
+main #news-block #blockNews .content:nth-child(1) {
+  grid-area: f-content; }
+
+main #news-block #blockNews .content:nth-child(2) {
+  grid-area: s-content; }
+
+main #sidebar #name {
+  grid-area: sidebar-name;
+  align-self: center; }
+
+main #sidebar #blockList {
+  grid-area: blockList;
+  display: grid; }
+
+main #sidebar #blockList #list {
+  width: 90%;
+  height: 90%;
+  align-self: center;
+  justify-self: center; }
+
+footer {
+  width: 100%;
+  height: 50px; }

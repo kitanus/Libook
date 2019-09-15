@@ -1,6 +1,6 @@
-//
+    //
 *{
-    border:1px solid black;
+    text-decoration: none;
 }
 
 %grid-shared{
@@ -8,8 +8,20 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 40px 30px auto 50px;
+    grid-template-areas:
+        "header header header header header header"
+        "menu menu menu menu menu menu"
+        ". news news news sidebar ."
+        "footer footer footer footer footer footer";
+}
+
 header {
     @extend %grid-shared;
+    grid-area: header;
     grid-template-rows: 40px;
     grid-template-areas: "logo . headerName headerName headerName . user user";
     align-items: center;
@@ -18,10 +30,13 @@ header {
 header{
     #logo{
         grid-area: logo;
+        text-align: center;
     }
 
     #name{
         grid-area: headerName;
+        font-size: 25px;
+        text-align: center;
     }
 
     #user{
@@ -30,133 +45,235 @@ header{
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 40px;
         align-items: center;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
         grid-template-areas: "enter login";
     }
 
     #user{
         #enter{
             grid-area: enter;
+            border-radius: 5px;
+            border: 1px solid black;
+            text-align: center;
+            cursor: pointer;
         }
 
         #login{
             grid-area: login;
+            border-radius: 5px;
+            border: 1px solid black;
+            text-align: center;
+            cursor: pointer;
         }
     }
 }
 
 #menu{
     @extend %grid-shared;
-    grid-template-rows: 20px;
+    grid-template-rows: 30px;
+    grid-area: menu;
+    background-color: #008484;
+    grid-column-gap: 10px;
+    align-items: center;
     grid-template-areas: ". a-main a-list a-search . search-form search-form search-form";
+}
+
+%menu-shared{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 #menu{
     #a-main{
         grid-area: a-main;
+        @extend %menu-shared
     }
 
     #a-list{
         grid-area: a-list;
+        @extend %menu-shared
     }
 
     #a-search{
         grid-area: a-search;
+        @extend %menu-shared
+    }
+
+    #a-main, #a-list, #a-search{
+        &:hover{
+            color: white;
+            background-color: #005454;
+        }
+
+        &:active{
+            color: white;
+            background-color: #007373;
+        }
     }
 
     form{
         grid-area: search-form;
         display: grid;
-        grid-template-columns: 6fr 1fr 2fr;
-        grid-template-rows: 20px;
-        grid-template-areas: "form-input . form-button";}
+        grid-template-columns: 4fr 0.5fr 2fr;
+        grid-template-rows: 30px;
+        grid-template-areas: "form-input . form-button";
+        align-items: center;
+    }
 
     form{
         input{
             grid-area: form-input;
+            width: 100%;
         }
 
         button{
             grid-area: form-button;
+            background-color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            border: 1px solid #005454;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button{
+            &:hover{
+                color: white;
+                background-color: #005454;
+                border: 1px solid #009f9f;
+            }
+
+            &:active {
+                outline: none;
+                color: white;
+                background-color: #007373;
+                border: 1px solid #00bfbf;
+            }
         }
     }
 }
 
-main{
-    @extend %grid-shared;
-    grid-template-rows: 240px;
-    grid-template-areas:
-        "news news news news news news sidebar sidebar";
+#news-block{
+    grid-area: news;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px auto;
+    grid-template-areas: "news-name" "blockNews";
 }
 
-main{
-    #news-block{
-        grid-area: news;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 40px 200px;
-        grid-template-areas: "news-name" "blockNews";
+#news-block{
+    #name{
+        grid-area: news-name;
+        align-self: center;
+        text-align: center;
+        font-size: 25px;
     }
 
-    #sidebar{
-        grid-area: sidebar;
+    #blockNews{
+        grid-area: blockNews;
         display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 40px 200px;
-        grid-template-areas: "sidebar-name" "blockList";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: min-content 320px min-content;
+        grid-column-gap: 10px;
+        grid-row-gap: 5px;
+        justify-content: space-around;
+        align-content: space-around;
+        grid-template-areas:
+            "f-news-name s-news-name"
+            "f-news s-news"
+            "f-news-a s-news-a";
     }
 
-    #news-block{
-        #name{
-            grid-area: news-name;
-            align-self: center;
+    #blockNews{
+
+        #first-news-name{
+            grid-area: f-news-name;
+            text-align: center;
         }
 
-        #blockNews{
-            grid-area: blockNews;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 180px;
-            grid-column-gap: 10px;
-            grid-row-gap: 10px;
-            justify-content: space-around;
-            align-content: space-around;
-            grid-template-areas: "f-content s-content";
+        #first-news{
+            grid-area: f-news;
+            overflow: hidden;
         }
 
-        #blockNews{
-            .content:nth-child(1){
-                grid-area: f-content;
-            }
-
-            .content:nth-child(2){
-                grid-area: s-content;
+        #first-news{
+            a{
+                grid-area: f-news-a;
             }
         }
+
+        #second-news-name{
+            text-align: center;
+            grid-area: s-news-name;
+        }
+
+        #second-news{
+            grid-area: s-news;
+            overflow: hidden;
+        }
+
+        #second-news{
+            a{
+                grid-area: s-news-a;
+            }
+        }
+    }
+}
+
+#sidebar{
+    grid-area: sidebar;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content;
+    grid-template-areas: "sidebar-name" "blockList";
+}
+
+#sidebar{
+    #name{
+        grid-area: sidebar-name;
+        align-self: center;
+        text-align: center;
+        font-size: 25px;
     }
 
-    #sidebar{
-        #name{
-            grid-area: sidebar-name;
-            align-self: center;
+    #blockList{
+        grid-area: blockList;
+        display: grid;
+        grid-template-columns: 0.2fr 1fr 0.2fr;
+        grid-template-rows: min-content;
+        grid-template-areas: ". sidelist .";
+    }
+
+    #blockList{
+        ul#list{
+            grid-area: sidelist;
+            list-style-type: none;
+            padding-inline-start: 0px;
         }
 
-        #blockList{
-            grid-area: blockList;
-            display: grid;
-        }
-
-        #blockList{
-            #list{
-                width: 90%;
-                height: 90%;
-                align-self: center;
-                justify-self: center;
+        ul#list{
+            li{
+                a{
+                    color: black;
+                    width: 100%;
+                    display: block;
+                    text-align: center;
+                    font-size: 13px;
+                    padding: 5px 0px;
+                    margin-bottom: 5px;
+                    border: 1px solid black;
+                }
             }
         }
     }
 }
 
 footer{
-    width: 100%;
-    height: 50px;
+    grid-area: footer;
+    text-align: center;
 }

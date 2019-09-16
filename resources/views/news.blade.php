@@ -18,11 +18,23 @@
         <div id="name">Новостной блок</div>
         <div id="news">
             <div id="news-name">Первая новость</div>
-            <div id="news-content">Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</div>
-            <div id="news-footer">Подвал новости</div>
+            <div id="news-content">
+                <p>Я капризный. Я жалуюсь о многих вещах. Многое в мире технологий мне не нравится и это предсказуемо: программирование — шумная молодая дисциплина, и никто из нас не имеет ни малейшего представления, что он делает. Учитывая закон Старджона, у нас достаточно вещей для постижения на всю жизнь.
+                <p>Тут другое дело. PHP не просто неудобен в использовании, плохо мне подходит, субоптимален или не соответствует моим религиозным убеждениям. Я могу рассказать вам много хороших вещей о языках, которых я стараюсь избегать, и много плохих вещей о языках, которые мне нравятся. Вперёд, спрашивайте! Получаются интересные обсуждения.</p>
+                <p>PHP — единственное исключение. Фактически каждая деталь PHP в какой-то мере поломана. Язык, структура, экосистема: всё плохо. И даже нельзя указать на одну убийственную вещь, настолько дефект систематичный. Каждый раз, когда я пытаюсь систематизировать недостатки PHP, я теряюсь в поиске в глубину обнаруживая всё больше и больше ужасных мелочей(отсюда фрактал).</p>
+                <p>PHP — препятствие, отрава моего ремесла. Я схожу с ума от того, насколько он сломан и насколько воспеваем каждым уполномоченным любителем нежелающим научиться чему-либо ещё. У него ничтожно мало оправдывающих положительных качеств и я бы хотел забыть, что он вообще существует.</p></div>
+            <div id="news-footer">
+                <div id="news-footer-user">Vladislav Kochev</div>
+                <div id="news-footer-date">09.04.2019</div>
+            </div>
+            <div id="next-step">
+                <div id="previously-content"><a> <- Прошлая тема</a></div>
+                <div id="next-content"><a>Следующая тема -> </a></div>
+            </div>
         </div>
     </div>
 @endsection
+
 @section('footer')
     @parent
 @endsection

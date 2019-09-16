@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dc5497be-dec6-4fa5-be7d-7831d67c2eeb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/news.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/news.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/news.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/news.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +155,7 @@
       <option name="presentableId" value="Default" />
       <updated>1568214629750</updated>
       <workItem from="1568214632150" duration="17835000" />
-      <workItem from="1568373038801" duration="39980000" />
+      <workItem from="1568373038801" duration="45698000" />
     </task>
     <servers />
   </component>

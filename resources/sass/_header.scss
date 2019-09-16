@@ -1,0 +1,64 @@
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-area: header;
+    grid-template-rows: 40px;
+    grid-template-areas: "logo . headerName headerName headerName . user user";
+    align-items: center;
+}
+
+header{
+    #logo{
+        grid-area: logo;
+        text-align: center;
+    }
+
+    #name{
+        grid-area: headerName;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    #user{
+        grid-area: user;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 40px;
+        align-items: center;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        grid-template-areas: "enter login";
+    }
+
+    #user{
+        #enter{
+            grid-area: enter;
+            border-radius: 5px;
+            border: 1px solid black;
+            text-align: center;
+            cursor: pointer;
+            color: black;
+        }
+
+        #login{
+            grid-area: login;
+            border-radius: 5px;
+            border: 1px solid black;
+            text-align: center;
+            cursor: pointer;
+            color: black;
+        }
+
+        #enter, #login{
+            &:hover{
+                color: white;
+                background-color: #005454;
+            }
+
+            &:active{
+                color: white;
+                background-color: #007373;
+            }
+        }
+    }
+}

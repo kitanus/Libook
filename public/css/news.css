@@ -3,60 +3,9 @@
 
 body {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 40px 30px auto 50px;
-  grid-template-areas: "header header header header header header" "menu menu menu menu menu menu" ". news news news sidebar ." "footer footer footer footer footer footer"; }
-
-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-area: header;
-  grid-template-rows: 40px;
-  grid-template-areas: "logo . headerName headerName headerName . user user";
-  align-items: center; }
-
-header #logo {
-  grid-area: logo;
-  text-align: center; }
-
-header #name {
-  grid-area: headerName;
-  font-size: 25px;
-  text-align: center; }
-
-header #user {
-  grid-area: user;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 40px;
-  align-items: center;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  grid-template-areas: "enter login"; }
-
-header #user #enter {
-  grid-area: enter;
-  border-radius: 5px;
-  border: 1px solid black;
-  text-align: center;
-  cursor: pointer;
-  color: black; }
-
-header #user #login {
-  grid-area: login;
-  border-radius: 5px;
-  border: 1px solid black;
-  text-align: center;
-  cursor: pointer;
-  color: black; }
-
-header #user #enter:hover, header #user #login:hover {
-  color: white;
-  background-color: #005454; }
-
-header #user #enter:active, header #user #login:active {
-  color: white;
-  background-color: #007373; }
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 30px auto 50px;
+  grid-template-areas: "menu menu menu menu menu" ". news news news ." "footer footer footer footer footer"; }
 
 #menu {
   display: grid;
@@ -129,51 +78,47 @@ header #user #enter:active, header #user #login:active {
   background-color: #007373;
   border: 1px solid #00bfbf; }
 
-#news-block {
+#news-page {
   grid-area: news;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 40px auto;
   grid-template-areas: "news-name" "blockNews"; }
 
-#news-block #name {
+#news-page #name {
   grid-area: news-name;
   align-self: center;
   text-align: center;
   font-size: 25px; }
 
-#news-block #blockNews {
+#news-page #news {
   grid-area: blockNews;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: min-content 320px min-content;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content min-content;
   grid-column-gap: 10px;
   grid-row-gap: 5px;
   justify-content: space-around;
   align-content: space-around;
-  grid-template-areas: "f-news-name s-news-name" "f-news s-news" "f-news-a s-news-a"; }
+  grid-template-areas: "news-name" "news-content" "news-footer"; }
 
-#news-block #blockNews #first-news-name {
-  grid-area: f-news-name;
+#news-page #news-name {
+  grid-area: news-name;
   text-align: center; }
 
-#news-block #blockNews #first-news {
-  grid-area: f-news;
-  overflow: hidden; }
+#news-page #news-content {
+  grid-area: news-content; }
 
-#news-block #blockNews #first-news-end a {
-  grid-area: f-news-a; }
+#news-page #news-footer a {
+  grid-area: news-footer; }
 
-#news-block #blockNews #second-news-name {
+#news-page #news #second-news-name {
   text-align: center;
   grid-area: s-news-name; }
 
-#news-block #blockNews #second-news {
+#news-page #news #second-news {
   grid-area: s-news;
   overflow: hidden; }
-
-#news-block #blockNews #second-news-end a {
-  grid-area: s-news-a; }
 
 #sidebar {
   grid-area: sidebar;

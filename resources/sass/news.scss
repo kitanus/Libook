@@ -1,24 +1,26 @@
     //
-
 *{
     text-decoration: none;
 }
 
-body{
+%grid-shared{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 40px 30px auto 50px;
-    grid-template-areas:
-        "header header header header header header"
-        "menu menu menu menu menu menu"
-        ". news news news sidebar ."
-        "footer footer footer footer footer footer";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-    @import "header";
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 30px auto 50px;
+    grid-template-areas:
+        "menu menu menu menu menu"
+        ". news news news ."
+        "footer footer footer footer footer";
+}
+
     @import "menu";
 
-#news-block{
+#news-page{
     grid-area: news;
     display: grid;
     grid-template-columns: 1fr;
@@ -26,7 +28,7 @@ body{
     grid-template-areas: "news-name" "blockNews";
 }
 
-#news-block{
+#news-page{
     #name{
         grid-area: news-name;
         align-self: center;
@@ -34,35 +36,34 @@ body{
         font-size: 25px;
     }
 
-    #blockNews{
+    #news{
         grid-area: blockNews;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: min-content 320px min-content;
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content min-content;
         grid-column-gap: 10px;
         grid-row-gap: 5px;
         justify-content: space-around;
         align-content: space-around;
         grid-template-areas:
-            "f-news-name s-news-name"
-            "f-news s-news"
-            "f-news-a s-news-a";
+            "news-name"
+            "news-content"
+            "news-footer";
     }
 
-    #blockNews{
-        #first-news-name{
-            grid-area: f-news-name;
+    #news{
+        &-name{
+            grid-area: news-name;
             text-align: center;
         }
 
-        #first-news{
-            grid-area: f-news;
-            overflow: hidden;
+        &-content{
+            grid-area: news-content;
         }
 
-        #first-news-end{
+        &-footer{
             a{
-                grid-area: f-news-a;
+                grid-area: news-footer;
             }
         }
 
@@ -77,9 +78,7 @@ body{
         }
 
         #second-news-end{
-            a{
-                grid-area: s-news-a;
-            }
+
         }
     }
 }

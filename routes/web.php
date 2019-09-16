@@ -11,4 +11,6 @@
 |
 */
 
-Route::get('/', "Main@index");
+Route::get('/', "Main@index")->name('main');
+
+Route::get('/news', "News@index")->name('news');

@@ -27,7 +27,7 @@
         <div id="menu">
             <a id="a-main" href="/">Главная</a>
             <a id="a-news-page" href="<?= route('news') ?>">Новости</a>
-            <a id="a-list" href="/">Список</a>
+            <a id="a-list" href="<?= route('list') ?>">Список</a>
             <a id="a-search" href="/">Расширенный поиск</a>
             <form action="">
                     <input type="text" placeholder="Поиск">

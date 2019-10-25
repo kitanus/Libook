@@ -2,12 +2,16 @@
 
 *{
     text-decoration: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 body{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 40px 30px auto 50px;
+    grid-template-rows: 40px 30px auto auto;
+    background-color: #DCDCDC;
+    height: 100vh;
     grid-template-areas:
         "header header header header header header"
         "menu menu menu menu menu menu"
@@ -23,6 +27,7 @@ body{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 40px auto;
+    background-color: white;
     grid-template-areas: "news-name" "blockNews";
 }
 
@@ -88,6 +93,7 @@ body{
     grid-area: sidebar;
     display: grid;
     grid-template-columns: 1fr;
+    background-color: white;
     grid-template-rows: min-content min-content;
     grid-template-areas: "sidebar-name" "blockList";
 }
@@ -134,4 +140,6 @@ body{
 footer{
     grid-area: footer;
     text-align: center;
+    border-top: 1px solid;
+    background-color: #008484;
 }

@@ -14,3 +14,5 @@
 Route::get('/', "Main@index")->name('main');
 
 Route::get('/news', "News@index")->name('news');
+
+Route::get('/list', "ListBooks@index")->name('list');

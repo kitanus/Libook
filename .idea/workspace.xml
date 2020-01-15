@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc5497be-dec6-4fa5-be7d-7831d67c2eeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +59,15 @@
         <item name="libook: database" type="162271b6:PgImplModel$Database" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - libook@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="libook: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="news_to_category: table" type="69fad909:PgImplModel$LocalTable" />
       </path>
     </expand>
     <select />
@@ -212,7 +213,32 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4b2c9338" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4b2c9338" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@400d435f" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4b2c9338" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@26590830" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4b2c9338" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2ea506cc" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4b2c9338" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7b72217d" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -234,7 +260,7 @@
       <workItem from="1571472264077" duration="29093000" />
       <workItem from="1573888550876" duration="658000" />
       <workItem from="1575293016552" duration="567000" />
-      <workItem from="1578994097186" duration="8211000" />
+      <workItem from="1578994097186" duration="11693000" />
     </task>
     <servers />
   </component>

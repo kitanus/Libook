@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc5497be-dec6-4fa5-be7d-7831d67c2eeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/app/public/news/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/public/news/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -182,13 +181,14 @@
     <property name="settings.editor.selected.configurable" value="file.status.colors" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Vladislav\OSPanel\domains\libook\storage\app\public\news" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Vladislav\OSPanel\domains\libook\storage\app\public\news" />
       <recent name="C:\Vladislav\OSPanel\domains\libook\app\Http\Controllers" />
       <recent name="C:\Vladislav\OSPanel\domains\libook\resources\sass" />
       <recent name="C:\Vladislav\OSPanel\domains\libook\resources\views" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Vladislav\OSPanel\domains\libook\storage\app\public\news" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -246,7 +246,7 @@
       <workItem from="1573888550876" duration="658000" />
       <workItem from="1575293016552" duration="567000" />
       <workItem from="1578994097186" duration="13130000" />
-      <workItem from="1579122933044" duration="837000" />
+      <workItem from="1579122933044" duration="1078000" />
     </task>
     <servers />
   </component>

@@ -42,16 +42,16 @@ body{
     #blockNews{
         grid-area: blockNews;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 0.1fr 1fr 1fr 0.1fr;
         grid-template-rows: min-content 320px min-content;
         grid-column-gap: 10px;
         grid-row-gap: 5px;
         justify-content: space-around;
         align-content: space-around;
         grid-template-areas:
-            "f-news-name s-news-name"
-            "f-news s-news"
-            "f-news-a s-news-a";
+            ". f-news-name s-news-name ."
+            ". f-news s-news ."
+            ". f-news-a s-news-a .";
     }
 
     #blockNews{
@@ -65,10 +65,8 @@ body{
             overflow: hidden;
         }
 
-        #first-news-end{
-            a{
-                grid-area: f-news-a;
-            }
+        a#first-news-end{
+            grid-area: f-news-a;
         }
 
         #second-news-name{
@@ -81,10 +79,8 @@ body{
             overflow: hidden;
         }
 
-        #second-news-end{
-            a{
-                grid-area: s-news-a;
-            }
+        a#second-news-end{
+            grid-area: s-news-a;
         }
     }
 }

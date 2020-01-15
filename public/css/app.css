@@ -150,13 +150,13 @@ header #user #enter:active, header #user #login:active {
 #news-block #blockNews {
   grid-area: blockNews;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.1fr 1fr 1fr 0.1fr;
   grid-template-rows: min-content 320px min-content;
   grid-column-gap: 10px;
   grid-row-gap: 5px;
   justify-content: space-around;
   align-content: space-around;
-  grid-template-areas: "f-news-name s-news-name" "f-news s-news" "f-news-a s-news-a"; }
+  grid-template-areas: ". f-news-name s-news-name ." ". f-news s-news ." ". f-news-a s-news-a ."; }
 
 #news-block #blockNews #first-news-name {
   grid-area: f-news-name;
@@ -166,7 +166,7 @@ header #user #enter:active, header #user #login:active {
   grid-area: f-news;
   overflow: hidden; }
 
-#news-block #blockNews #first-news-end a {
+#news-block #blockNews a#first-news-end {
   grid-area: f-news-a; }
 
 #news-block #blockNews #second-news-name {
@@ -177,7 +177,7 @@ header #user #enter:active, header #user #login:active {
   grid-area: s-news;
   overflow: hidden; }
 
-#news-block #blockNews #second-news-end a {
+#news-block #blockNews a#second-news-end {
   grid-area: s-news-a; }
 
 #sidebar {

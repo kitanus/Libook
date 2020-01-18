@@ -1,0 +1,111 @@
+*{
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 20px 40px 20px 40px 10px 350px;
+    background-color: #DCDCDC;
+    height: 100vh;
+    grid-template-areas:
+        ". . . . . ."
+        ". title title title title ."
+        ". . . . . ."
+        ". tCreateNews tCreateNews tCreateNews tCreateNews ."
+        ". . . . . ."
+        ". mCreateNews mCreateNews mCreateNews mCreateNews .";
+}
+
+#title{
+    grid-area: title;
+    background-color: white;
+    text-align: center;
+}
+
+#title-create-news{
+    grid-area: tCreateNews;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+#create-news{
+    grid-area: mCreateNews;
+    background-color: white;
+    padding-top: 20px;
+}
+
+#create-news{
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form{
+        label{
+            width: 70%;
+        }
+
+        label p{
+            font-size: 17px;
+            margin-bottom: 3px;
+            margin-top: 3px;
+            text-align: center;
+        }
+
+        label #title-news{
+            width: 100%;
+            height: 20px;
+        }
+
+        label #text-news{
+            width: 100%;
+            height: 150px;
+        }
+
+        label[for="author-news"]{
+            display: flex;
+            flex-direction: row;
+        }
+
+        label[for="author-news"]{
+            p{
+                margin-right: 20px;
+            }
+
+            #author-news{
+                border: 1px solid white;
+            }
+
+            #author-news:focus{
+                outline: none;
+            }
+        }
+
+        button{
+            padding: 6px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            border:1px solid white;
+            background-color: #DCDCDC;
+            color: black;
+            font-size: 19px;
+            outline: none;
+        }
+
+        button:hover{
+            background-color: #b0b0b0;
+        }
+
+        button:active{
+            border: 1px solid #757575;
+            background-color: #DCDCDC;
+        }
+    }
+}

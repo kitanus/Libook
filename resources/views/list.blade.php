@@ -140,7 +140,7 @@
         <button name="action" value="filter" form="list-form">Найти</button>
     </div>
 @endsection
-{{----}}
+
 @section('footer')
     @parent
 @endsection

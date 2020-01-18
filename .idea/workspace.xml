@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dc5497be-dec6-4fa5-be7d-7831d67c2eeb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/list.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/news.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_menu.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/news.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/news/show.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -187,23 +177,23 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/sass/news" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/sass" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="file.status.colors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Vladislav\OSPanel\domains\libook\resources\sass" />
+      <recent name="C:\Vladislav\OSPanel\domains\libook\resources\views" />
       <recent name="C:\Vladislav\OSPanel\domains\libook\resources\sass\news" />
       <recent name="C:\Vladislav\OSPanel\domains\libook\resources\views\news" />
       <recent name="C:\Vladislav\OSPanel\domains\libook\storage\app\public\news" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Vladislav\OSPanel\domains\libook\resources\sass\news" />
       <recent name="C:\Vladislav\OSPanel\domains\libook\resources\views\news" />
       <recent name="C:\Vladislav\OSPanel\domains\libook\storage\app\public\news" />
-      <recent name="C:\Vladislav\OSPanel\domains\libook\app\Http\Controllers" />
-      <recent name="C:\Vladislav\OSPanel\domains\libook\resources\sass" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -252,7 +242,7 @@
       <workItem from="1575293016552" duration="567000" />
       <workItem from="1578994097186" duration="13130000" />
       <workItem from="1579122933044" duration="10508000" />
-      <workItem from="1579288321364" duration="5515000" />
+      <workItem from="1579288321364" duration="17844000" />
     </task>
     <servers />
   </component>

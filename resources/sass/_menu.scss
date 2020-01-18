@@ -5,7 +5,7 @@
     grid-area: menu;
     background-color: #008484;
     grid-column-gap: 10px;
-    align-items: center;
+    align-content: center;
     grid-template-areas: "a-main a-list a-news-page a-search . search-form search-form search-form";
 }
 

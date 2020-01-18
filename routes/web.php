@@ -13,6 +13,16 @@
 
 Route::get('/', "Main@index")->name('main');
 
-Route::get('/news', "News@index")->name('news');
+Route::group(['prefix' => 'news'], function ()
+{
+    Route::get('list', 'NewsController@list')->name('listNews');
+    Route::get('new', 'NewsController@new')->name('newNews');
+    Route::group(['prefix' => '{id}'], function ()
+    {
+        Route::get('', 'NewsController@show')->name('showNews');
+        Route::get('edit', 'NewsController@edit')->name('editNews');
+        Route::get('delete', 'NewsController@delete')->name('deleteNews');
+    });
+});
 
 Route::get('/list', "ListBooks@index")->name('list');

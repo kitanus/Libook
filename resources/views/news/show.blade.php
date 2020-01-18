@@ -3,7 +3,7 @@
 @section('title', 'NewsPage')
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{asset('css/news.css')}}?v1">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/news/show.css')}}?v1">
 @endsection
 
 @section('header')
@@ -15,9 +15,8 @@
 
 @section('content')
     <div id="news-page">
-        <div id="name">Новостной блок</div>
+        <div id="name">{{ $name }}</div>
         <div id="news">
-            <div id="news-name">{{ $name }}</div>
             <div id="news-content">
                 @for ($i = 0; $i < count($content); $i++)
                     <p>{{ $content[$i] }}</p>

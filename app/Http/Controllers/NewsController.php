@@ -6,28 +6,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
-class News extends Controller
+class NewsController extends Controller
 {
-    public function index()
+    public function list()
     {
-        if(!$_GET)
+        $news = DB::table('news')->get();
+
+        return view('news/list', [
+            'news' => $news
+        ]);
+    }
+
+    public function show($id)
+    {
+        $news = DB::table('news')->where('id', $id)->first();
+
+        if(empty($news))
         {
             $news = DB::table('news')->where('id', '1')->first();
-            $id = 1;
-        }
-        else
-        {
-            $news = DB::table('news')->where('id', $_GET['news_id'])->first();
-            $id = $_GET['news_id'];
-
-            if(empty($news))
-            {
-                $news = DB::table('news')->where('id', '1')->first();
-                $id = 1;
-            }
         }
 
-        return view('news', [
+        return view('news/show', [
             'content' => $this->getTextNews('news/'.$news->addres_text.'.txt'),
             'name' => $news->name,
             'id' => $id

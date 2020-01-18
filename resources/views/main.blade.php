@@ -3,7 +3,7 @@
 @section('title', 'MainPage')
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}?v2">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}?v3">
 @endsection
 
 @section('header')
@@ -28,7 +28,7 @@
 
             <div id="second-news-name">{{ $nameNews[1] }}</div>
             <div id="second-news">
-                @for ($i = 0; $i < count($news[0]); $i++)
+                @for ($i = 0; $i < count($news[1]); $i++)
                     <p>{{ $news[1][$i] }}</p>
                 @endfor
             </div>

@@ -17,21 +17,11 @@
     <div id="news-page">
         <h2 id="title">Новости</h2>
         <div id="news-list">
-            <div class="news-row">
-                <span class="time-news">14:39</span> <a href="/news/1">Бывший глава спецслужб Армении найден мертвым с огнестрельным ранением</a>
-            </div>
-            <div class="news-row">
-                <span class="time-news">14:39</span> <a href="/">Бывший глава спецслужб Армении найден мертвым с огнестрельным ранением</a>
-            </div>
-            <div class="news-row">
-                <span class="time-news">14:39</span> <a href="/">Бывший глава спецслужб Армении найден мертвым с огнестрельным ранением</a>
-            </div>
-            <div class="news-row">
-                <span class="time-news">14:39</span> <a href="/">Бывший глава спецслужб Армении найден мертвым с огнестрельным ранением</a>
-            </div>
-            <div class="news-row">
-                <span class="time-news">14:39</span> <a href="/">Бывший глава спецслужб Армении найден мертвым с огнестрельным ранением</a>
-            </div>
+            @foreach ($news as $article)
+                <div class="news-row">
+                    <span class="time-news">{{ $article->time }}</span> <a href="/news/{{ $article->id }}">{{ $article->name }}</a>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection

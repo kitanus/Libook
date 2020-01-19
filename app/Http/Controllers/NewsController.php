@@ -14,7 +14,7 @@ class NewsController extends Controller
             [
                 'id' => count(DB::table('news')->get())+1,
                 'name' => $_POST['name'],
-                'addres_text' => 'news_'.$_POST['author'].'_'.date(now()),
+                'addres_text' => 'news_'.$_POST['author'],
                 'time' => date("h:i:s"),
                 'date' => date("Y-m-d")
             ]

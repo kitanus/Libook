@@ -21,14 +21,15 @@
 </div>
 
 <div id="create-news">
-    <form method="post" action="<?= route('admin')  ?>">
+    <form method="post" action="<?= route('createNews')  ?>">
+        {{ csrf_field() }}
         <label for="title-news">
             <p>Название новости:</p>
-            <input id="title-news" type="text">
+            <input name="name" id="title-news" type="text">
         </label>
         <label for="text-news">
             <p>Текст новости:</p>
-            <textarea id="text-news"></textarea>
+            <textarea name="text" id="text-news"></textarea>
         </label>
         <label for="author-news">
             <p>Автор:</p>

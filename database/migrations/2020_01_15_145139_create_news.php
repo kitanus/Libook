@@ -17,8 +17,8 @@ class CreateNews extends Migration
             $table->bigIncrements('id');
             $table->text("name");
             $table->text("addres_text");
-            $table->integer('time');
-            $table->integer('date');
+            $table->time('time');
+            $table->date('date');
             $table->timestamps();
         });
 

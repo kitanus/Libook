@@ -16,7 +16,7 @@ Route::get('/', "Main@index")->name('main');
 Route::group(['prefix' => 'news'], function ()
 {
     Route::get('list', 'NewsController@list')->name('listNews');
-    Route::get('new', 'NewsController@new')->name('newNews');
+    Route::post('create', 'NewsController@create')->name('createNews');
     Route::group(['prefix' => '{id}'], function ()
     {
         Route::get('', 'NewsController@show')->name('showNews');

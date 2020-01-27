@@ -13,8 +13,15 @@ gulp.task('sassNews', function(){
         .pipe(gulp.dest('public/css/news'))
 });
 
+gulp.task('sassAuth', function(){
+    return gulp.src('resources/sass/auth/*.scss')
+        .pipe(sass()) // Конвертируем Sass в CSS с помощью gulp-sass
+        .pipe(gulp.dest('public/css/auth'))
+});
+
 gulp.task('watch', function(done) {
     gulp.watch('resources/sass/*.scss', gulp.series('sass'));
     gulp.watch('resources/sass/news/*.scss', gulp.series('sassNews'));
+    gulp.watch('resources/sass/auth/*.scss', gulp.series('sassAuth'));
     done();
 });

@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->users();
+        $this->main();
 
         $this->command->info('Таблицы загружены данными!');
     }
@@ -53,25 +53,6 @@ class DatabaseSeeder extends Seeder
             'addres_text' => 'second_news',
             'time' => '11',
             'date' => '11'
-        ]]);
-
-        $this->command->info('Таблицы загружены данными!');
-    }
-
-    private function users()
-    {
-        DB::table('users')->insert([[
-            'id' => 1,
-            'nickname' => "User",
-            'email' => "kuluk@mail.ru",
-            'password' => "user",
-            'role' => 2
-        ],[
-            'id' => 2,
-            'nickname' => "Admin",
-            'email' => "kulukf@mail.ru",
-            'password' => "admin",
-            'role' => 1
         ]]);
 
         $this->command->info('Таблицы загружены данными!');

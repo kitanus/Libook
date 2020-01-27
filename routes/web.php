@@ -28,3 +28,5 @@ Route::group(['prefix' => 'news'], function ()
 Route::get('/list', "ListBooks@index")->name('list');
 
 Route::get('/admin', "AdminController@index")->name('admin');
+
+Auth::routes();

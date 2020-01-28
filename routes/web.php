@@ -30,3 +30,5 @@ Route::get('/list', "ListBooks@index")->name('list');
 Route::get('/admin', "AdminController@index")->name('admin');
 
 Auth::routes();
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logmin');

@@ -8,19 +8,20 @@ use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
+
         DB::table('news')->insert(
             [
                 'id' => count(DB::table('news')->get())+1,
-                'name' => $_POST['name'],
-                'addres_text' => 'news_'.$_POST['author'],
+                'name' => $request->name,
+                'addres_text' => 'news_'.$request->author,
                 'time' => date("h:i:s"),
                 'date' => date("Y-m-d")
             ]
         );
 
-        Storage::disk('public')->put('news/news_'.$_POST['author'].".txt", $_POST['text']);
+        Storage::disk('public')->put('news/news_'.$request->author.".txt", $request->text);
 
         return view('admin');
     }

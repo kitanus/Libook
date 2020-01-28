@@ -17,8 +17,7 @@
             <div id="logo">Logo</div>
             <div id="name">Libook</div>
             <div id="user">
-                <a id="enter" href="<?= route('login') ?>">Вход</a>
-                <a id="login" href="<?= route('register') ?>">Регистрация</a>
+                @yield('user')
             </div>
         </header>
         @show

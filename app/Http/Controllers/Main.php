@@ -2,14 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Expr\Empty_;
+use PHPUnit\Framework\StaticAnalysis\HappyPath\AssertNotInstanceOf\A;
 
 class Main extends Controller
 {
     public function index()
     {
+
+        if(!empty(Auth::user()->name))
+        {
+            $user = Auth::user()->name;
+        }
+        else
+        {
+            $user=false;
+        }
+
         $news = DB::table('news')->get();
 
         $lastNews = $news[count($news)-1];
@@ -27,7 +41,8 @@ class Main extends Controller
 
         return view('main', [
             'news' => $arrNews,
-            'nameNews' => $arrNamesNews
+            'nameNews' => $arrNamesNews,
+            'user' => $user
         ]);
     }
 

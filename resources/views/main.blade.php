@@ -14,6 +14,18 @@
     @parent
 @endsection
 
+@section('user')
+
+    @if($user === false)
+        <a id="enter" href="<?= route('login') ?>">Вход</a>
+        <a id="login" href="<?= route('register') ?>">Регистрация</a>
+    @else
+        <a id="enter">{{ $user }}</a>
+        <a id="logout" href="<?= route('logmin') ?>">Выход</a>
+    @endif
+
+@endsection
+
 @section('content')
     <div id="news-block">
         <div id="name">Новостной блок</div>

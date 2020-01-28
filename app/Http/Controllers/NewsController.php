@@ -44,10 +44,13 @@ class NewsController extends Controller
             $news = DB::table('news')->where('id', '1')->first();
         }
 
+        $user = DB::table('users')->where('id', $news->id_user)->first();
+
         return view('news/show', [
             'content' => $this->getTextNews('news/'.$news->addres_text.'.txt'),
-            'name' => $news->name,
-            'id' => $id
+            'news' => $news,
+            'id' => $id,
+            'user' => $user
         ]);
     }
 

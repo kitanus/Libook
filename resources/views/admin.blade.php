@@ -34,9 +34,9 @@
         <label for="author-news">
             <p>Автор:</p>
             <select name="author" id="author-news">
-                <option value="A">Абракан</option>
-                <option value="B">Воинство</option>
-                <option value="C">Судейство</option>
+                @foreach($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
             </select>
         </label>
         <button name="action" value="send">Выложить новость</button>

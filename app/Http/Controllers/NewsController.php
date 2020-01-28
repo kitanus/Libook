@@ -15,13 +15,13 @@ class NewsController extends Controller
             [
                 'id' => count(DB::table('news')->get())+1,
                 'name' => $request->name,
-                'addres_text' => 'news_'.$request->author,
+                'addres_text' => 'news'.date("d_h_i").'_'.$request->author,
                 'time' => date("h:i:s"),
                 'date' => date("Y-m-d")
             ]
         );
 
-        Storage::disk('public')->put('news/news_'.$request->author.".txt", $request->text);
+        Storage::disk('public')->put('news/news'.date("d_h_i").'_'.$request->author.".txt", $request->text);
 
         return view('admin');
     }

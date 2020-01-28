@@ -30,35 +30,26 @@ header #name {
 
 header #user {
   grid-area: user;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 40px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  grid-template-areas: "enter login"; }
+  justify-content: center; }
 
-header #user #enter {
-  grid-area: enter;
+header #user a {
   border-radius: 5px;
   border: 1px solid black;
   text-align: center;
   cursor: pointer;
-  color: black; }
+  color: black;
+  display: block;
+  padding: 2px 22px;
+  margin-right: 10px; }
 
-header #user #login {
-  grid-area: login;
-  border-radius: 5px;
-  border: 1px solid black;
-  text-align: center;
-  cursor: pointer;
-  color: black; }
-
-header #user #enter:hover, header #user #login:hover {
+header #user a:hover {
   color: white;
   background-color: #005454; }
 
-header #user #enter:active, header #user #login:active {
+header #user a:active {
   color: white;
   background-color: #007373; }
 

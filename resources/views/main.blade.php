@@ -3,7 +3,7 @@
 @section('title', 'MainPage')
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}?v3">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}?v1">
 @endsection
 
 @section('header')

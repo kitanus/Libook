@@ -28,7 +28,9 @@ body{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 40px auto;
-    grid-template-areas: "news-name" "blockNews";
+    grid-template-areas:
+        "news-name"
+        "blockNews";
     padding-bottom: 15px;
     border:1px solid black;
     background-color: white;
@@ -106,15 +108,23 @@ body{
         #next-step{
             grid-area: next-step;
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             grid-template-rows: min-content;
             grid-template-areas:
-                "precontent . nextcontent";
+                "precontent edit delete nextcontent";
         }
 
         #next-step{
             #previously-content{
                 grid-area: precontent;
+            }
+
+            #edit-content{
+                grid-area: edit;
+            }
+            //
+            #delete-content{
+                grid-area: delete;
             }
 
             #next-content{

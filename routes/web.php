@@ -20,7 +20,8 @@ Route::group(['prefix' => 'news'], function ()
     Route::group(['prefix' => '{id}'], function ()
     {
         Route::get('', 'NewsController@show')->name('showNews');
-        Route::get('edit', 'NewsController@edit')->name('editNews');
+        Route::get('edit', 'NewsController@showEdit')->name('showEditNews');
+        Route::post('edit', 'NewsController@edit')->name('editNews');
         Route::get('delete', 'NewsController@delete')->name('deleteNews');
     });
 });

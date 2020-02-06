@@ -1,0 +1,109 @@
+*{
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+%grid-shared{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 30px auto auto;
+    background-color: #DCDCDC;
+    height: 100vh;
+    grid-template-areas:
+        "menu menu menu menu menu"
+        ". news news news ."
+        "footer footer footer footer footer";
+}
+
+    @import "../menu";
+
+#news-page{
+    grid-area: news;
+    padding-bottom: 15px;
+    border:1px solid black;
+    background-color: white;
+}
+
+#news-page{
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form{
+        label{
+            width: 70%;
+        }
+
+        label p{
+            font-size: 17px;
+            margin-bottom: 3px;
+            margin-top: 3px;
+            text-align: center;
+        }
+
+        label #title-news{
+            width: 100%;
+            height: 20px;
+        }
+
+        label #text-news{
+            width: 100%;
+            height: 150px;
+        }
+
+        label[for="author-news"]{
+            display: flex;
+            flex-direction: row;
+        }
+
+        label[for="author-news"]{
+            p{
+                margin-right: 20px;
+            }
+
+            #author-news{
+                border: 1px solid white;
+            }
+
+            #author-news:focus{
+                outline: none;
+            }
+        }
+
+        button{
+            padding: 6px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            border:1px solid white;
+            background-color: #DCDCDC;
+            color: black;
+            font-size: 19px;
+            outline: none;
+        }
+        button:hover{
+            background-color: #b0b0b0;
+        }
+
+        button:active{
+            border: 1px solid #757575;
+            background-color: #DCDCDC;
+        }
+
+    }
+}
+
+footer{
+    grid-area: footer;
+    text-align: center;
+    border-top: 1px solid;
+    background-color: #008484;
+}

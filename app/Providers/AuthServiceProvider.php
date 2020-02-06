@@ -34,6 +34,7 @@ class AuthServiceProvider extends ServiceProvider
             foreach($roles as $role)
             {
                 $role = DB::table('roles')->where('id', $role->role_id)->get();
+
                 if($role[0]->name == "Admin")
                 {
                     return true;

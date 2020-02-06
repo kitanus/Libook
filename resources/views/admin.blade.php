@@ -21,7 +21,7 @@
 </div>
 
 <div id="create-news">
-    <form method="post" action="<?= route('createNews')  ?>">
+    <form method="post" action="{{ route('createNews')  }}">
         {{ csrf_field() }}
         <label for="title-news">
             <p>Название новости:</p>

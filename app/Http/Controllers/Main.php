@@ -27,8 +27,8 @@ class Main extends Controller
         $lastNews = (new News)->getLastNews();
 
         $textNews = [
-            $this->getTextNews('news/'.$lastNews['preLast']->addres_text.'.txt'),
-            $this->getTextNews('news/'.$lastNews['last']->addres_text.'.txt')
+            $this->getTextNews('news/'.$lastNews['preLast']["addres_text"].'.txt'),
+            $this->getTextNews('news/'.$lastNews['last']["addres_text"].'.txt')
         ];
 
         return view('main', [

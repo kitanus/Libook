@@ -45,4 +45,9 @@ class User extends Authenticatable
     public function getOne($name, $value){
         return self::all()->where($name, $value)->first();
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role', 'user_role');
+    }
 }

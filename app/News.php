@@ -18,4 +18,8 @@ class News extends Model
 
         return $result;
     }
+
+    public function getOne($name, $value){
+        return self::all()->where($name, $value)->first();
+    }
 }

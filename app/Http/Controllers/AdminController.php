@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
@@ -15,17 +16,10 @@ class AdminController extends Controller
             return redirect()->back();
         }
 
-        $roles = DB::table('user_role')->where('id_role', 1)->get();
-
-        $users = collect();
-
-        foreach ($roles as $role)
-        {
-            $users = $users->merge(DB::table('users')->where('id', $role->id_user)->get());
-        };
+        $admins = Role::find(1)->users()->getResults();
 
         return view('admin', [
-            'users' => $users
+            'admins' => $admins
         ]);
     }
 }

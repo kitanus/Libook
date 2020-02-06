@@ -14,7 +14,7 @@ class AddUserIdToNews extends Migration
     public function up()
     {
         Schema::table('news', function (Blueprint $table) {
-            $table->integer('id_user')->default(1);
+            $table->integer('user_id')->default(1);
         });
     }
 

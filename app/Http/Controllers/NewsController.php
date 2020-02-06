@@ -20,7 +20,7 @@ class NewsController extends Controller
         $news->id = count(DB::table('news')->get())+1;
         $news->name = $request->name;
         $news->addres_text = 'news'.date("d_h_i").'_'.$nameAuthor;
-        $news->id_user = $request->author;
+        $news->user_id = $request->author;
         $news->time = date("h:i:s");
         $news->date = date("Y-m-d");
 
@@ -33,7 +33,7 @@ class NewsController extends Controller
 
     public function list()
     {
-        $news = DB::table('news')->get();
+        $news = (new News)->getAll();
 
         return view('news/list', [
             'news' => $news
@@ -42,20 +42,20 @@ class NewsController extends Controller
 
     public function show($id)
     {
-        $news = DB::table('news')->where('id', $id)->first();
+        $news = new News();
 
-        if(empty($news))
+        $currentNews = $news->getOne('id', $id);
+
+        if(empty($currentNews))
         {
-            $news = DB::table('news')->where('id', '1')->first();
+            $currentNews = $news->getOne('id', 1);
         }
 
-        $user = DB::table('users')->where('id', $news->id_user)->first();
-
         return view('news/show', [
-            'content' => $this->getTextNews('news/'.$news->addres_text.'.txt'),
-            'news' => $news,
+            'content' => $this->getTextNews('news/'.$currentNews->addres_text.'.txt'),
+            'news' => $currentNews,
             'id' => $id,
-            'user' => $user
+            'user' => (new User)->getOne('id', $currentNews->user_id)
         ]);
     }
 

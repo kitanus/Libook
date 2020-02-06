@@ -29,11 +29,11 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('admin', function ()
         {
-            $roles = DB::table('user_role')->where('id_user', Auth::user()->id)->get();
+            $roles = DB::table('user_role')->where('user_id', Auth::user()->id)->get();
 
             foreach($roles as $role)
             {
-                $role = DB::table('role')->where('id', $role->id_role)->get();
+                $role = DB::table('roles')->where('id', $role->role_id)->get();
                 if($role[0]->name == "Admin")
                 {
                     return true;

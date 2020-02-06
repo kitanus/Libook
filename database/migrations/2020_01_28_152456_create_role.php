@@ -13,7 +13,7 @@ class CreateRole extends Migration
      */
     public function up()
     {
-        Schema::create('role', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
@@ -21,8 +21,8 @@ class CreateRole extends Migration
 
         Schema::create('user_role', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_user');
-            $table->integer('id_role');
+            $table->integer('user_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

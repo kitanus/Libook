@@ -34,8 +34,8 @@
         <label for="author-news">
             <p>Автор:</p>
             <select name="author" id="author-news">
-                @foreach($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @foreach($admins as $admin)
+                    <option value="{{ $admin->id }}">{{ $admin->name }}</option>
                 @endforeach
             </select>
         </label>

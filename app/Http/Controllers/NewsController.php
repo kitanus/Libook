@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\News;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
@@ -12,6 +13,11 @@ class NewsController extends Controller
 {
     public function showEdit($id)
     {
+        if(Gate::denies('admin'))
+        {
+            return redirect()->back();
+        }
+
         $news = (new News())->getOne('id', $id);
 
         return view('news/edit', [
@@ -23,6 +29,11 @@ class NewsController extends Controller
 
     public function edit($id, Request $request)
     {
+        if(Gate::denies('admin'))
+        {
+            return redirect()->back();
+        }
+
         $news = News::find($id);
 
         $news->name = $request->name;
@@ -37,6 +48,11 @@ class NewsController extends Controller
 
     public function delete($id)
     {
+        if(Gate::denies('admin'))
+        {
+            return redirect()->back();
+        }
+
         $news = News::find($id);
         Storage::disk('public')->delete('news/'.$news->addres_text.".txt");
         $news->delete();
@@ -46,6 +62,11 @@ class NewsController extends Controller
 
     public function create(Request $request)
     {
+
+        if(Gate::denies('admin'))
+        {
+            return redirect()->back();
+        }
 
         $nameAuthor = (new User)->getOne('id', $request->author)->name;
 
@@ -76,6 +97,13 @@ class NewsController extends Controller
 
     public function show($id)
     {
+        $gate = true;
+
+        if(Gate::denies('admin'))
+        {
+            $gate = false;
+        }
+
         $news = new News();
 
         $currentNews = $news->getOne('id', $id);
@@ -89,7 +117,8 @@ class NewsController extends Controller
             'content' => $this->getTextNews('news/'.$currentNews->addres_text.'.txt'),
             'news' => $currentNews,
             'id' => $id,
-            'user' => (new User)->getOne('id', $currentNews->user_id)
+            'user' => (new User)->getOne('id', $currentNews->user_id),
+            'gate' => $gate
         ]);
     }
 

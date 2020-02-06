@@ -28,8 +28,10 @@
             </div>
             <div id="next-step">
                 <div id="previously-content"><a href="/news/{{ $id-1 }}"> <- Прошлая тема</a></div>
-                <a id="edit-content" href="{{ route('showEditNews', ['id' => $id]) }}">Редактирование</a>
-                <a id="delete-content" href="{{ route('deleteNews', ['id' => $id]) }}">Удаление</a>
+                @if($gate === true)
+                    <a id="edit-content" href="{{ route('showEditNews', ['id' => $id]) }}">Редактирование</a>
+                    <a id="delete-content" href="{{ route('deleteNews', ['id' => $id]) }}">Удаление</a>
+                @endif
                 <div id="next-content"><a href="/news/{{ $id+1 }}">Следующая тема -> </a></div>
             </div>
         </div>

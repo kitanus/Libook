@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\News;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -11,19 +13,22 @@ class NewsController extends Controller
     public function create(Request $request)
     {
 
-        DB::table('news')->insert(
-            [
-                'id' => count(DB::table('news')->get())+1,
-                'name' => $request->name,
-                'addres_text' => 'news'.date("d_h_i").'_'.$request->author,
-                'time' => date("h:i:s"),
-                'date' => date("Y-m-d")
-            ]
-        );
+        $nameAuthor = (new User)->getOne('id', $request->author)->name;
 
-        Storage::disk('public')->put('news/news'.date("d_h_i").'_'.$request->author.".txt", $request->text);
+        $news = new News();
 
-        return view('admin');
+        $news->id = count(DB::table('news')->get())+1;
+        $news->name = $request->name;
+        $news->addres_text = 'news'.date("d_h_i").'_'.$nameAuthor;
+        $news->id_user = $request->author;
+        $news->time = date("h:i:s");
+        $news->date = date("Y-m-d");
+
+        $news->save();
+
+        Storage::disk('public')->put('news/news'.date("d_h_i").'_'.$nameAuthor.".txt", $request->text);
+
+        return redirect()->route('admin');
     }
 
     public function list()

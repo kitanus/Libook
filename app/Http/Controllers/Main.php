@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -24,24 +24,16 @@ class Main extends Controller
             $user=false;
         }
 
-        $news = DB::table('news')->get();
+        $lastNews = (new News)->getLastNews();
 
-        $lastNews = $news[count($news)-1];
-        $preLastNews = $news[count($news)-2];
-
-        $arrNews = [
-            $this->getTextNews('news/'.$preLastNews->addres_text.'.txt'),
-            $this->getTextNews('news/'.$lastNews->addres_text.'.txt')
-        ];
-
-        $arrNamesNews = [
-            $preLastNews->name,
-            $lastNews->name
+        $textNews = [
+            $this->getTextNews('news/'.$lastNews['preLast']->addres_text.'.txt'),
+            $this->getTextNews('news/'.$lastNews['last']->addres_text.'.txt')
         ];
 
         return view('main', [
-            'news' => $arrNews,
-            'nameNews' => $arrNamesNews,
+            'textNews' => $textNews,
+            'lastNews' => $lastNews,
             'user' => $user
         ]);
     }

@@ -30,18 +30,18 @@
     <div id="news-block">
         <div id="name">Новостной блок</div>
         <div id="blockNews">
-            <div id="first-news-name">{{ $nameNews[0] }}</div>
+            <div id="first-news-name">{{ $lastNews['last']->name }}</div>
             <div id="first-news">
-                @for ($i = 0; $i < count($news[0]); $i++)
-                    <p>{{ $news[0][$i] }}</p>
+                @for ($i = 0; $i < count($textNews[0]); $i++)
+                    <p>{{ $textNews[0][$i] }}</p>
                 @endfor
             </div>
             <a id="first-news-end" href="/">Читать дальше...</a>
 
-            <div id="second-news-name">{{ $nameNews[1] }}</div>
+            <div id="second-news-name">{{ $lastNews['preLast']->name }}</div>
             <div id="second-news">
-                @for ($i = 0; $i < count($news[1]); $i++)
-                    <p>{{ $news[1][$i] }}</p>
+                @for ($i = 0; $i < count($textNews[1]); $i++)
+                    <p>{{ $textNews[1][$i] }}</p>
                 @endfor
             </div>
             <a id="second-news-end" href="/">Читать дальше...</a>

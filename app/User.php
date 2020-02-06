@@ -41,4 +41,8 @@ class User extends Authenticatable
     {
         return self::all();
     }
+
+    public function getOne($name, $value){
+        return self::all()->where($name, $value)->first();
+    }
 }

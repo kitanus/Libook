@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Book;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,21 +14,71 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->main();
+        $this->book();
 
         $this->command->info('Таблицы загружены данными!');
+    }
+
+    private function book()
+    {
+        $namesVern = [
+          "Пять недель на воздушном шаре",
+          "Путешествие к центру земли",
+          "Вокруг Луны",
+          "Плавающий город",
+          "Вокруг света за восемьдесят лет",
+          "В стране мехов",
+          "Таинственный остров",
+          "Паровой дом"
+        ];
+
+        $namesAkunin = [
+            "Азазель",
+            "Турецкий гамбит",
+            "Статский советник",
+            "Шпионский роман",
+            "Фантастика",
+            "Квест",
+            "Детская книга для девочек"
+        ];
+
+        foreach ($namesVern as $nameV)
+        {
+            $book = new Book();
+
+            $book->name = $nameV;
+            $book->isbn = rand(1000000, 9999999);
+            $book->count_page = rand(50, 800);
+            $book->author_id = 1;
+            $book->category_id = 1;
+
+            $book->save();
+        }
+
+        foreach ($namesAkunin as $nameA)
+        {
+            $book = new Book();
+
+            $book->name = $nameA;
+            $book->isbn = rand(1000000, 9999999);
+            $book->count_page = rand(50, 800);
+            $book->author_id = 2;
+            $book->category_id = 1;
+
+            $book->save();
+        }
     }
 
     private function main()
     {
         DB::table('authors')->insert([[
             'id' => 1,
-            'name' => "Александр",
-            'surname' => "Даль"
+            'name' => "Жюль",
+            'surname' => "Верн"
         ],[
             'id' => 2,
-            'name' => "Василий",
-            'surname' => "Куприн"
+            'name' => "Борис",
+            'surname' => "Акунин"
         ]]);
 
         DB::table('category')->insert([[

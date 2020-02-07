@@ -62,7 +62,6 @@ class NewsController extends Controller
 
     public function create(Request $request)
     {
-
         if(Gate::denies('admin'))
         {
             return redirect()->back();

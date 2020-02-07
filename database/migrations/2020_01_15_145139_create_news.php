@@ -34,6 +34,8 @@ class CreateNews extends Migration
             $table->text('name');
             $table->integer('isbn');
             $table->integer('count_page');
+            $table->integer('author_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
 
@@ -47,13 +49,6 @@ class CreateNews extends Migration
             $table->bigIncrements('id');
             $table->integer('id_news');
             $table->integer('id_authors');
-            $table->timestamps();
-        });
-
-        Schema::create('news_to_category', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('id_news');
-            $table->integer('id_category');
             $table->timestamps();
         });
     }

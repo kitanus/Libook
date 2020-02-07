@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use PhpParser\Node\Expr\Empty_;
 use PHPUnit\Framework\StaticAnalysis\HappyPath\AssertNotInstanceOf\A;
 
-class Main extends Controller
+class MainController extends Controller
 {
     public function index()
     {

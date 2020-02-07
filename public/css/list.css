@@ -86,7 +86,7 @@ body {
   grid-area: list;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: min-content 30px 1fr min-content;
+  grid-template-rows: min-content 40px 1fr min-content;
   background-color: white;
   grid-template-areas: "list-name list-name list-name" "list-letters list-letters list-letters" "list-main list-main list-main" ". list-pages ."; }
 
@@ -100,12 +100,14 @@ body {
   grid-area: list-letters;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around; }
 
 #list-block #letters a {
   color: #398dd8;
   font-weight: bold;
-  text-decoration: underline; }
+  text-decoration: underline;
+  margin-right: 5px; }
 
 #list-block #main-list {
   grid-area: list-main;

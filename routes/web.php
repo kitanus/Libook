@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', "Main@index")->name('main');
+Route::get('/', "MainController@index")->name('main');
 
 Route::group(['prefix' => 'news'], function ()
 {
@@ -26,9 +26,13 @@ Route::group(['prefix' => 'news'], function ()
     });
 });
 
-Route::get('/list', "ListBooks@index")->name('list');
+Route::group(['prefix' => 'list'], function ()
+{
+    Route::get('', "ListBooksController@index")->name('list');
+    Route::get('{word}', "ListBooksController@filterWord")->name('filterWord');
+});
 
-Route::get('/admin', "AdminController@index")->name('admin');
+Route::get('admin', "AdminController@index")->name('admin');
 
 Auth::routes();
 

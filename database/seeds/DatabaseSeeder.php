@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Book;
+use App\Author;
+use App\Http\Controllers\Parser\SeedParser;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,53 +21,52 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Таблицы загружены данными!');
     }
 
+
     private function book()
     {
-        $namesVern = [
-          "Пять недель на воздушном шаре",
-          "Путешествие к центру земли",
-          "Вокруг Луны",
-          "Плавающий город",
-          "Вокруг света за восемьдесят лет",
-          "В стране мехов",
-          "Таинственный остров",
-          "Паровой дом"
-        ];
+        $infoBooks = new SeedParser();
 
-        $namesAkunin = [
-            "Азазель",
-            "Турецкий гамбит",
-            "Статский советник",
-            "Шпионский роман",
-            "Фантастика",
-            "Квест",
-            "Детская книга для девочек"
-        ];
+        Author::truncate();
 
-        foreach ($namesVern as $nameV)
+        $id=1;
+
+        $infoAuthors = array_map(function ($book){
+            return $book['authors'];
+        }, $infoBooks->getBookInfo());
+
+        $infoAuthors = array_unique($infoAuthors);
+        foreach($infoAuthors as $infoAuthor)
         {
-            $book = new Book();
-
-            $book->name = $nameV;
-            $book->isbn = rand(1000000, 9999999);
-            $book->count_page = rand(50, 800);
-            $book->author_id = 1;
-            $book->category_id = 1;
-
-            $book->save();
+            $author = new Author();
+            $author->id = $id;
+            $author->name = $infoAuthor;
+            $author->save();
+            $id++;
         }
 
-        foreach ($namesAkunin as $nameA)
+        $this->command->info('Загружены авторы!');
+
+        Book::truncate();
+
+        $id=1;
+
+        foreach ($infoBooks->getBookInfo() as $infoBook)
         {
             $book = new Book();
 
-            $book->name = $nameA;
+            $book->id = $id;
+            $book->name = $infoBook['names'];
             $book->isbn = rand(1000000, 9999999);
             $book->count_page = rand(50, 800);
-            $book->author_id = 2;
+
+            $author = Author::where('name', $infoBook['authors'])->first();
+            $book->author_id = $author->id;
             $book->category_id = 1;
+            $book->year = $infoBook['year'];
 
             $book->save();
+
+            $id++;
         }
     }
 

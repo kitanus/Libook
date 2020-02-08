@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class ListBooksController extends Controller
 {
-    public function index()
+    public function index($page)
     {
-        $books = Book::all();
+        $books = Book::skip(0+($page-1)*15)->take(15)->get();
 
         return view('list', [
             'words' => $this->getAllWords(),

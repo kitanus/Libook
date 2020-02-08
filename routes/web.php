@@ -28,7 +28,7 @@ Route::group(['prefix' => 'news'], function ()
 
 Route::group(['prefix' => 'list'], function ()
 {
-    Route::get('', "ListBooksController@index")->name('list');
+    Route::get('{page}', "ListBooksController@index")->name('list');
     Route::get('{word}', "ListBooksController@filterWord")->name('filterWord');
 });
 
@@ -37,3 +37,5 @@ Route::get('admin', "AdminController@index")->name('admin');
 Auth::routes();
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logmin');
+
+Route::get('parse', '\App\Http\Controllers\Parser\SeedParser@index');

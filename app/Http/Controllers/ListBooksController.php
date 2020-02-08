@@ -11,9 +11,14 @@ class ListBooksController extends Controller
     {
         $books = Book::skip(0+($page-1)*15)->take(15)->get();
 
+        $booksCount = count(Book::all());
+
+        $booksCount = $booksCount/15;
+
         return view('list', [
             'words' => $this->getAllWords(),
-            'books' => $books
+            'books' => $books,
+            'pages' => $booksCount
         ]);
     }
 

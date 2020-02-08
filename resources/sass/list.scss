@@ -34,7 +34,7 @@ body{
         "list-name list-name list-name"
         "list-letters list-letters list-letters"
         "list-main list-main list-main"
-        ". list-pages .";
+        "list-pages list-pages list-pages";
 }
 
 #list-block{
@@ -100,6 +100,7 @@ body{
         grid-area: list-pages;
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: flex-start;
     }
 

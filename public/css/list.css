@@ -88,7 +88,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: min-content 40px 1fr min-content;
   background-color: white;
-  grid-template-areas: "list-name list-name list-name" "list-letters list-letters list-letters" "list-main list-main list-main" ". list-pages ."; }
+  grid-template-areas: "list-name list-name list-name" "list-letters list-letters list-letters" "list-main list-main list-main" "list-pages list-pages list-pages"; }
 
 #list-block #name {
   grid-area: list-name;
@@ -137,6 +137,7 @@ body {
   grid-area: list-pages;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start; }
 
 #list-block #pages .page {

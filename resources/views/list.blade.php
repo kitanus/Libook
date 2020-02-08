@@ -3,7 +3,7 @@
 @section('title', 'ListPage')
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{asset('css/list.css')}}?v4">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/list.css')}}?v5">
 @endsection
 
 @section('header')
@@ -26,22 +26,15 @@
                 <a class="book" href="/">
                     <span class="author">{{ $book->getAuthor()->name }} {{ $book->getAuthor()->surname }}</span>
                     <span class="name">{{ $book->name }}</span>
-                    <span class="year">11.06.2017</span>
+                    <span class="year">{{ $book->year }}</span>
                 </a>
             @endforeach
         </div>
         <div id="pages">
             <a class="pages">пред.</a>
-            <a class="page">1</a>
-            <a class="page">2</a>
-            <a class="page">3</a>
-            <a class="page">4</a>
-            <a class="page">5</a>
-            <a class="page">1</a>
-            <a class="page">2</a>
-            <a class="page">3</a>
-            <a class="page">4</a>
-            <a class="page">5</a>
+            @for($i = 1; $i < $pages+1; $i++)
+                <a class="page" href="{{ route('pageList', ['page' => $i]) }}">{{ $i }}</a>
+            @endfor
             <a class="pages">след.</a>
         </div>
     </div>

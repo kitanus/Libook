@@ -29,7 +29,11 @@ Route::group(['prefix' => 'news'], function ()
 Route::group(['prefix' => 'list'], function ()
 {
     Route::get('{page}', "ListBooksController@index")->name('pageList');
-    Route::get('{word}', "ListBooksController@filterWord")->name('filterWord');
+
+    Route::group(['prefix' => '{word}'], function ()
+    {
+        Route::get('{page}', "ListBooksController@filterWord")->name('filterWord');
+    });
 });
 
 Route::get('admin', "AdminController@index")->name('admin');

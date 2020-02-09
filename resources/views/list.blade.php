@@ -18,7 +18,7 @@
         <div id="name">Список</div>
         <div id="letters">
             @foreach($words as $word)
-                <a href="{{ route('filterWord', ['word'=>$word]) }}">{{ mb_strtoupper($word) }}</a>
+                <a href="{{ route('filterWord', ['word'=>$word, 'page'=>1]) }}">{{ mb_strtoupper($word) }}</a>
             @endforeach
         </div>
         <div id="main-list">
@@ -32,8 +32,14 @@
         </div>
         <div id="pages">
             <a class="pages">пред.</a>
-            @for($i = 1; $i < $pages+1; $i++)
-                <a class="page" href="{{ route('pageList', ['page' => $i]) }}">{{ $i }}</a>
+            @for($i = 1; $i < $countPages+1; $i++)
+                <a class="page @if($i == $page) current @endif" href="
+                    @if(isset($wordPage))
+                        {{ route('filterWord', ['word' => $wordPage, 'page' => $i]) }}
+                    @else
+                        {{ route('pageList', ['page' => $i]) }}
+                    @endif
+                    ">{{ $i }}</a>
             @endfor
             <a class="pages">след.</a>
         </div>

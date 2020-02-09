@@ -111,6 +111,11 @@ body{
             margin: 0 5px;
             cursor: pointer;
         }
+
+        .current{
+            border: 1px solid black;
+            text-align: center;
+        }
     }
 }
 

@@ -146,6 +146,10 @@ body {
   margin: 0 5px;
   cursor: pointer; }
 
+#list-block #pages .current {
+  border: 1px solid black;
+  text-align: center; }
+
 #list-sidebar {
   grid-area: l-sidebar;
   display: grid;

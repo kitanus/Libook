@@ -18,7 +18,40 @@ class ListBooksController extends Controller
         return view('list', [
             'words' => $this->getAllWords(),
             'books' => $books,
-            'pages' => $booksCount
+            'countPages' => $booksCount,
+            'page' => $page
+        ]);
+    }
+
+    public function filterWord($word, $page)
+    {
+        $book = Book::all();
+
+        $names = $book->map(function ($item, $key)
+        {
+            return mb_substr($item->name,0,1);
+        });
+
+        $filtBooks = collect();
+
+        foreach ($names as $id => $name)
+        {
+            if(mb_strtolower($name) == mb_strtolower($word))
+            {
+                $filtBooks->push($book->get($id));
+            }
+        }
+
+        $books = $filtBooks->slice(0+($page-1)*15)->take(15)->all();
+
+        $booksCount = count($filtBooks)/15;
+
+        return view('list', [
+            'words' => $this->getAllWords(),
+            'books' => $books,
+            'countPages' => $booksCount,
+            'page' => $page,
+            'wordPage' => $word
         ]);
     }
 

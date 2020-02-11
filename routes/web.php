@@ -30,7 +30,7 @@ Route::group(['prefix' => 'list'], function ()
 {
     Route::get('{page}', "ListBooksController@index")->name('pageList');
 
-    Route::group(['prefix' => '{word}'], function ()
+    Route::group(['prefix' => '{kind}/{word}'], function ()
     {
         Route::get('{page}', "ListBooksController@filterWord")->name('filterWord');
     });

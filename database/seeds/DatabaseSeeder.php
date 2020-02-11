@@ -34,12 +34,29 @@ class DatabaseSeeder extends Seeder
             return $book['authors'];
         }, $infoBooks->getBookInfo());
 
+        $fInfoAuthors = [];
+
         $infoAuthors = array_unique($infoAuthors);
         foreach($infoAuthors as $infoAuthor)
         {
+            if(strpos($infoAuthor, " "))
+            {
+                $arrAuthors = explode(' ', $infoAuthor);
+                $fInfoAuthors[$infoAuthor]['id'] = $id;
+                $fInfoAuthors[$infoAuthor]['name'] = $arrAuthors[0];
+                $fInfoAuthors[$infoAuthor]['surname'] = str_replace(",", "", $arrAuthors[1]);
+            }
+            else
+            {
+                $fInfoAuthors[$infoAuthor]['id'] = $id;
+                $fInfoAuthors[$infoAuthor]['name'] = $infoAuthor;
+                $fInfoAuthors[$infoAuthor]['surname'] = " ";
+            }
+
             $author = new Author();
             $author->id = $id;
-            $author->name = $infoAuthor;
+            $author->name = $fInfoAuthors[$infoAuthor]['name'];
+            $author->surname = $fInfoAuthors[$infoAuthor]['surname'];
             $author->save();
             $id++;
         }
@@ -58,9 +75,7 @@ class DatabaseSeeder extends Seeder
             $book->name = $infoBook['names'];
             $book->isbn = rand(1000000, 9999999);
             $book->count_page = rand(50, 800);
-
-            $author = Author::where('name', $infoBook['authors'])->first();
-            $book->author_id = $author->id;
+            $book->author_id = $fInfoAuthors[$infoBook['authors']]["id"];
             $book->category_id = 1;
             $book->year = $infoBook['year'];
 

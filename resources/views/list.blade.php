@@ -3,7 +3,7 @@
 @section('title', 'ListPage')
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{asset('css/list.css')}}?v5">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/list.css')}}?v6">
 @endsection
 
 @section('header')
@@ -16,15 +16,25 @@
 @section('content')
     <div id="list-block">
         <div id="name">Список</div>
+        <div id="kind">
+            <a href="{{ $kindType['name'] }}">Название произведения</a>
+            <a href="{{ $kindType['name-author'] }}">Имя автора</a>
+            <a href="{{ $kindType['surname-author'] }}">Фамилия автора</a>
+        </div>
         <div id="letters">
+            <a href="{{ route('pageList', ['page'=>1]) }}">Все</a>
             @foreach($words as $word)
-                <a href="{{ route('filterWord', ['word'=>$word, 'page'=>1]) }}">{{ mb_strtoupper($word) }}</a>
+                @if(isset($kind))
+                    <a href="{{ route('filterWord', ['kind' => $kind, 'word'=>$word, 'page'=>1]) }}">{{ mb_strtoupper($word) }}</a>
+                @else
+                    <a href="{{ route('filterWord', ['kind' => "name", 'word'=>$word, 'page'=>1]) }}">{{ mb_strtoupper($word) }}</a>
+                @endif
             @endforeach
         </div>
         <div id="main-list">
             @foreach($books as $book)
                 <a class="book" href="/">
-                    <span class="author">{{ $book->getAuthor()->name }} {{ $book->getAuthor()->surname }}</span>
+                    <span class="author">{{ $book->author->name }} {{ $book->author->surname }}</span>
                     <span class="name">{{ $book->name }}</span>
                     <span class="year">{{ $book->year }}</span>
                 </a>
@@ -33,40 +43,14 @@
         <div id="pages">
             <a class="pages">пред.</a>
             @for($i = 1; $i < $countPages+1; $i++)
-                <a class="page @if($i == $page) current @endif" href="
-                    @if(isset($wordPage))
-                        {{ route('filterWord', ['word' => $wordPage, 'page' => $i]) }}
-                    @else
-                        {{ route('pageList', ['page' => $i]) }}
-                    @endif
-                    ">{{ $i }}</a>
+                @if(isset($wordPage))
+                    <a class="page @if($i == $page) current @endif" href="{{ route('filterWord', ['kind' => $kind, 'word' => $wordPage, 'page' => $i]) }}">{{ $i }}</a>
+                @else
+                    <a class="page @if($i == $page) current @endif" href="{{ route('pageList', ['page' => $i]) }}">{{ $i }}</a>
+                @endif
             @endfor
             <a class="pages">след.</a>
         </div>
-    </div>
-    <div id="list-sidebar">
-        <div id="name">Фильтр</div>
-        <div id="filter">
-            <form action="/" method="post" id="list-form">
-                <label for="select_genre">Жанр: </label>
-                <select name="genre" id="select_genre">
-                    <option value="detective">Детектив</option>
-                    <option value="romance">Романтика</option>
-                    <option value="comedy">Комедия</option>
-                    <option value="drama">Драма</option>
-                    <option value="doc">Документалистика</option>
-                    <option value="adventure">Приключение</option>
-                </select>
-                <label for="select_country">Страна писателя: </label>
-                <select name="country" id="select_country">
-                    <option value="japan">Япония</option>
-                    <option value="russia">Россия</option>
-                    <option value="america">Америка</option>
-                    <option value="britain">Британия</option>
-                </select>
-            </form>
-        </div>
-        <button name="action" value="filter" form="list-form">Найти</button>
     </div>
 @endsection
 

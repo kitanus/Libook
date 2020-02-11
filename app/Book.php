@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    public function getAuthor()
+    public function author()
     {
-        return Author::all()->where('id', $this->author_id)->first();
+        return $this->belongsTo('App\Author');
     }
 }

@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class ListBooksController extends Controller
 {
+
+    public $countPage;
+
     public function index($page)
     {
         $books = Book::skip(0+($page-1)*15)->take(15)->get();
@@ -15,8 +18,8 @@ class ListBooksController extends Controller
         $booksCount = count(Book::all())/15;
 
         $kindType['name'] = route('filterWord', ['kind'=>'name', 'word'=>'a', 'page'=>1]);
-        $kindType['name-author'] = route('filterWord', ['kind'=>'name-author', 'word'=>'a', 'page'=>1]);
-        $kindType['surname-author'] = route('filterWord', ['kind'=>'surname-author', 'word'=>'a', 'page'=>1]);
+        $kindType['name-author'] = route('filterWord', ['kind'=>'name-author', 'word'=>'а', 'page'=>1]);
+        $kindType['surname-author'] = route('filterWord', ['kind'=>'surname-author', 'word'=>'а', 'page'=>1]);
 
         return view('list', [
             'words' => $this->getAllWords(),
@@ -29,20 +32,39 @@ class ListBooksController extends Controller
 
     public function filterWord($kind, $word, $page)
     {
-        $names = [];
-
-        switch ($kind) {
+        switch ($kind)
+        {
             case 'name':
-                $books = Book::
+                $books = Book::with('author')->get();
+                $this->countPage = count($books)/15;
+                $books = $books->skip(0+($page-1)*15)->take(15)->get();
                 break;
-            case 1:
-                echo "i равно 1";
+            case "name-author":
+                $books = $this->getBooksFilterAuthors('name', $word, $page);
                 break;
-            case 2:
-                echo "i равно 2";
+            case "surname-author":
+                $books = $this->getBooksFilterAuthors('surname', $word, $page);
                 break;
         }
-        $authors = Author::where('surname', 'like', mb_strtoupper($word).'%')->with('books')->get();
+
+        $kindType['name'] = route('filterWord', ['kind'=>'name', 'word'=>$word, 'page'=>1]);
+        $kindType['name-author'] = route('filterWord', ['kind'=>'name-author', 'word'=>$word, 'page'=>1]);
+        $kindType['surname-author'] = route('filterWord', ['kind'=>'surname-author', 'word'=>$word, 'page'=>1]);
+
+        return view('list', [
+            'words' => $this->getAllWords(),
+            'books' => $books,
+            'countPages' => $this->countPage,
+            'page' => $page,
+            'wordPage' => $word,
+            'kindType' => $kindType,
+            'kind' => $kind
+        ]);
+    }
+
+    public function getBooksFilterAuthors($kind, $word, $page)
+    {
+        $authors = Author::where($kind, 'like', mb_strtoupper($word).'%')->with('books')->get();
 
         $filtBooks = collect();
 
@@ -52,22 +74,10 @@ class ListBooksController extends Controller
         }
 
         $filtBooks = $filtBooks->collapse();
-        $books = $filtBooks->slice(0+($page-1)*15)->take(15)->all();
 
+        $this->countPage = count($filtBooks)/15;
 
-        $kindType['name'] = route('filterWord', ['kind'=>'name', 'word'=>$word, 'page'=>1]);
-        $kindType['name-author'] = route('filterWord', ['kind'=>'name-author', 'word'=>$word, 'page'=>1]);
-        $kindType['surname-author'] = route('filterWord', ['kind'=>'surname-author', 'word'=>$word, 'page'=>1]);
-
-        return view('list', [
-            'words' => $this->getAllWords(),
-            'books' => $books,
-            'countPages' => count($filtBooks)/15,
-            'page' => $page,
-            'wordPage' => $word,
-            'kindType' => $kindType,
-            'kind' => $kind
-        ]);
+        return $filtBooks->slice(0+($page-1)*15)->take(15)->all();
     }
 
     public function getAllWords()
